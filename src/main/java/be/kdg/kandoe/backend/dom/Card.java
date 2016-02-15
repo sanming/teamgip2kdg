@@ -1,7 +1,27 @@
 package be.kdg.kandoe.backend.dom;
 
+import java.io.Serializable;
+
 /**
- * Created by J.P on 15/02/2016.
+ * This is the card object that represents a possible choise of anwsers for a theme
  */
-public class Card {
+public class Card implements Serializable{
+    private Integer cardId;
+    private String cardName;
+
+    public Integer getCardId() {
+        return cardId;
+    }
+
+    public void setCardId(Integer cardId) {
+        this.cardId = cardId;
+    }
+
+    public String getCardName() {
+        return cardName;
+    }
+
+    public void setCardName(String cardName) {
+        this.cardName = cardName;
+    }
 }
