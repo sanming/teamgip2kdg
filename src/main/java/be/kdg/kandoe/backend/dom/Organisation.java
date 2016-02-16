@@ -10,6 +10,8 @@ import java.util.List;
  * This is the organisation object that a administrator can create. In an organisation the users/organisator
  * can create new themes (subjects) where users can play
  */
+@Entity
+@Table(name = "Organisation")
 public class Organisation implements Serializable, Identifiable<Integer>{
     @Column(name = "OrganisationId", nullable = false)
     @Id
