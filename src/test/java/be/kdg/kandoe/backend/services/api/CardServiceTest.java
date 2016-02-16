@@ -9,6 +9,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
 /**
  * Created by claudiu on 15/02/16.
  */
@@ -23,7 +25,7 @@ public class CardServiceTest {
 
     @Test
     public void testCreateCard(){
-
+        assertThat(cardService,is(not(null)));
     }
 
 }
