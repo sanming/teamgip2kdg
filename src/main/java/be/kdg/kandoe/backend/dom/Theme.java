@@ -48,8 +48,8 @@ public class Theme implements Serializable,Identifiable<Integer>{
     @JoinColumn(name="CircleId",nullable = false)
     private Circle circle;
 
-    @OneToMany()
-    private List<Role> roles;
+    @OneToMany(targetEntity = User.class, cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    private List<User> users;
 
     @Override
     public Integer getId() {
