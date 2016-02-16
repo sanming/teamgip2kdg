@@ -7,15 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 /**
  * Created by Gobius on 16/02/2016.
  */
-
-public class ThemeServiceTest extends ServiceTests {
+public class OrganisationTests extends ServiceTests {
     //@Autowired
-    ThemeService themeService;
+    private OrganisationService organisationService;
+
+
 
     @Test
-    public void testCreateMainTheme() throws Exception{
-
-        //themeService.createTheme(user.getId());
+    public void createOrganisationTest(){
 
     }
 }

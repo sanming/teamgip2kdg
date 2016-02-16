@@ -13,6 +13,7 @@ public class Registered extends Role {
         return null;
     }
 
+
     @Override
     public RoleType getRoleType() {
         return RoleType.REGISTERED;
