@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * This is the card object that represents a possible choise of anwsers for a theme
+ * This is the card object that represents a possible choice of answers for a theme
  */
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)

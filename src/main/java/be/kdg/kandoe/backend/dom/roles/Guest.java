@@ -16,6 +16,6 @@ public class Guest extends Role {
 
     @Override
     public RoleType getRoleType() {
-        return null;
+        return RoleType.GUEST;
     }
 }

@@ -63,6 +63,8 @@ public abstract class Role implements Identifiable<Integer> {
         {
             case GUEST:
                 return new Guest();
+            case ORGANISATOR:
+                return new Organisator();
             default:
                 return new Registered();
         }
@@ -107,6 +109,6 @@ public abstract class Role implements Identifiable<Integer> {
 
     public enum RoleType
     {
-        GUEST, NORMAL
+        GUEST, REGISTERED, ORGANISATOR
     }
 }

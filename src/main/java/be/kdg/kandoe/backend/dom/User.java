@@ -33,8 +33,17 @@ public class User implements Serializable,UserDetails, Identifiable<Integer>{
     @Column(name = "Lastname", nullable = true, length = 255)
     private String lastname;
 
+    @ManyToOne(targetEntity = Organisation.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Organisation> organisations;
+
     @OneToMany(targetEntity = Role.class,cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "user")
     private List<Role> roles;
+
+    //TODO: Constructor
+
+
+    public User() {
+    }
 
     public List<Role> getRoles()
     {
@@ -43,7 +52,7 @@ public class User implements Serializable,UserDetails, Identifiable<Integer>{
 
     @Override
     public Integer getId() {
-        return null;
+        return userId;
     }
 
     @Override
@@ -53,12 +62,12 @@ public class User implements Serializable,UserDetails, Identifiable<Integer>{
 
     @Override
     public String getPassword() {
-        return null;
+        return encryptedPassword;
     }
 
     @Override
     public String getUsername() {
-        return null;
+        return username;
     }
 
     @Override
