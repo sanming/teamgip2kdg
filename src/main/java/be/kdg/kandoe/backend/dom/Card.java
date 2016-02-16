@@ -42,8 +42,8 @@ public class Card implements Serializable, Identifiable<Integer>{
     @JoinColumn(name = "ThemeId")
     private Theme theme;
 
-    @ManyToOne(targetEntity = Circle.class,cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    @JoinColumn(name = "CirleId")
+   // @ManyToOne(targetEntity = Circle.class,cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+   // @JoinColumn(name = "CirleId")
     private Theme circle;
 
     public Card() {

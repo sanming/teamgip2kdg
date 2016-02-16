@@ -12,6 +12,8 @@ import java.util.List;
 /**
  * Created by J.P on 15/02/2016.
  */
+@Entity
+@Table(name = "`User`")
 public class User implements Serializable,UserDetails, Identifiable<Integer>{
     @Id
     @GeneratedValue
