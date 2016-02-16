@@ -15,4 +15,6 @@ public interface CardService {
     void updateCard(Card c);
 
     Card getCardById(Integer cardId);
+
+    List<Card> createCardsFromCSV(Integer id, String csvstring);
 }

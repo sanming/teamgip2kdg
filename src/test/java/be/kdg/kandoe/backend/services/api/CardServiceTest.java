@@ -13,6 +13,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 /**
@@ -41,6 +43,15 @@ public class CardServiceTest {
         Card c = cardService.createCard(user.getId(),"newcard");
         assertThat(cardService.getCards(), hasItem(c));
     }
+
+    @Test
+    public void testCreateCSVCard() throws Exception{
+        String csv = "kaartnaam,";
+        List<Card> cards = cardService.createCardsFromCSV(user.getId(),csv);
+
+        assertThat(cardService.getCards(),contains(cards));
+    }
+
     @Test
     public void testUpdateCard() throws Exception{
         Card c = cardService.createCard(user.getId(),"newcard");
@@ -49,11 +60,10 @@ public class CardServiceTest {
         cardService.updateCard(c);
         assertThat(cardService.getCardById(c.getCardId()), equalTo(c));
     }
-    @Test
-    public void testGetThemeCards() throws Exception{
+    public void testDeleteCard() throws Exception{
         Card c = cardService.createCard(user.getId(),"newcard");
 
-        assertThat(cardService.getCardsByTheme(), hasItem(c));
     }
+
 
 }

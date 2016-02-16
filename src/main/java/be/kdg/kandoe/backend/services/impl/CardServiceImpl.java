@@ -33,4 +33,19 @@ public class CardServiceImpl implements CardService {
     public List<Card> getCards() {
         return cardRepository.findAll();
     }
+
+    @Override
+    public void updateCard(Card c) {
+
+    }
+
+    @Override
+    public Card getCardById(Integer cardId) {
+        return null;
+    }
+
+    @Override
+    public List<Card> createCardsFromCSV(Integer id, String csvstring) {
+        return null;
+    }
 }
