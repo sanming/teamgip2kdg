@@ -1,6 +1,10 @@
 package be.kdg.kandoe.backend.services.api;
 
 import be.kdg.kandoe.backend.config.BackendContextConfig;
+import be.kdg.kandoe.backend.dom.Card;
+import be.kdg.kandoe.backend.dom.User;
+import org.hamcrest.Matchers;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +27,33 @@ public class CardServiceTest {
     @Autowired
     private CardService cardService;
 
+    @Autowired
+    private UserService userService;
+
+    private User user;
+    @Before
+    public void before(){
+        user = userService.getAllUsers().get(0);
+    }
+
     @Test
-    public void testCreateCard(){
-        assertThat(cardService,is(not(null)));
+    public void testCreateCard() throws Exception{
+        Card c = cardService.createCard(user.getId(),"newcard");
+        assertThat(cardService.getCards(), hasItem(c));
+    }
+    @Test
+    public void testUpdateCard() throws Exception{
+        Card c = cardService.createCard(user.getId(),"newcard");
+
+        c.setScore(c.getScore()+1);
+        cardService.updateCard(c);
+        assertThat(cardService.getCardById(c.getCardId()), equalTo(c));
+    }
+    @Test
+    public void testGetThemeCards() throws Exception{
+        Card c = cardService.createCard(user.getId(),"newcard");
+
+        assertThat(cardService.getCardsByTheme(), hasItem(c));
     }
 
 }

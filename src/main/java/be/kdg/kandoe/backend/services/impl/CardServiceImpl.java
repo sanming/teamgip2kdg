@@ -1,9 +1,13 @@
 package be.kdg.kandoe.backend.services.impl;
 
+import be.kdg.kandoe.backend.dom.Card;
+import be.kdg.kandoe.backend.persistence.api.CardRepository;
 import be.kdg.kandoe.backend.services.api.CardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 /**
  * Created by Yiua on 15/02/16.
@@ -11,7 +15,22 @@ import org.springframework.transaction.annotation.Transactional;
 @Service("cardService")
 @Transactional
 public class CardServiceImpl implements CardService {
+    private CardRepository cardRepository;
+
     @Autowired
-    public CardServiceImpl() {
+    public CardServiceImpl(final CardRepository cardRepository) {
+        this.cardRepository = cardRepository;
+    }
+
+
+
+    @Override
+    public Card createCard(int user, String cardtext) {
+        return null;
+    }
+
+    @Override
+    public List<Card> getCards() {
+        return cardRepository.findAll();
     }
 }

@@ -6,7 +6,10 @@
 
 package be.kdg.kandoe.backend.services.api;
 
+import be.kdg.kandoe.backend.dom.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
+
+import java.util.List;
 
 
 /**
@@ -14,4 +17,5 @@ import org.springframework.security.core.userdetails.UserDetailsService;
  */
 public interface UserService extends UserDetailsService {
 
+    List<User> getAllUsers();
 }

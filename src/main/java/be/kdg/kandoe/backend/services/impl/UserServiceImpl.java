@@ -3,11 +3,13 @@ package be.kdg.kandoe.backend.services.impl;
 import be.kdg.kandoe.backend.services.api.UserService;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
 /**
  * Created by Yiua on 15/02/16.
  *
  */
+@Service("userService")
 public class UserServiceImpl implements UserService {
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
