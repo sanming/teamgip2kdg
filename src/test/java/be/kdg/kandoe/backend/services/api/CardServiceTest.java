@@ -35,12 +35,12 @@ public class CardServiceTest {
     private User user;
     @Before
     public void before(){
-        user = userService.getAllUsers().get(0);
+        //user = userService.getAllUsers().get(0);
     }
 
     @Test
     public void testCreateCard() throws Exception{
-        Card c = cardService.createCard(user.getId(),"newcard");
+        Card c = cardService.createCard(1,"name","description");
         assertThat(cardService.getCards(), hasItem(c));
     }
 
@@ -54,14 +54,14 @@ public class CardServiceTest {
 
     @Test
     public void testUpdateCard() throws Exception{
-        Card c = cardService.createCard(user.getId(),"newcard");
+        Card c = cardService.createCard(user.getId(),"name","description");
 
         c.setScore(c.getScore()+1);
         cardService.updateCard(c);
         assertThat(cardService.getCardById(c.getCardId()), equalTo(c));
     }
     public void testDeleteCard() throws Exception{
-        Card c = cardService.createCard(user.getId(),"newcard");
+        Card c = cardService.createCard(user.getId(),"name","description");
 
     }
 

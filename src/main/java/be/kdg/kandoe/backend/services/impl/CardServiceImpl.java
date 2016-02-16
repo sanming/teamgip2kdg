@@ -23,10 +23,10 @@ public class CardServiceImpl implements CardService {
     }
 
 
-
     @Override
-    public Card createCard(int user, String cardtext) {
-        return null;
+    public Card createCard(int user, String name, String description) {
+        Card card=new Card(name,description);
+        return cardRepository.save(card);
     }
 
     @Override

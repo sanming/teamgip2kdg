@@ -1,6 +1,7 @@
 package be.kdg.kandoe.backend.dom;
 
 import be.kdg.kandoe.backend.dom.roles.Role;
+import org.hibernate.annotations.Fetch;
 import org.springframework.hateoas.Identifiable;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -23,7 +24,7 @@ public class User implements Serializable,UserDetails, Identifiable<Integer>{
     @Column(name = "Username", nullable = false)
     private String username = null;
 
-    @Column(name = "Username", nullable = false, unique = true)
+    @Column(name = "Email", nullable = false, unique = true)
     private String email = null;
 
     @Column(name = "Password", nullable = true, length = 255)
@@ -39,6 +40,7 @@ public class User implements Serializable,UserDetails, Identifiable<Integer>{
     private List<Organisation> organisations;
 
     @OneToMany(targetEntity = Role.class,cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "user")
+    @Fetch(org.hibernate.annotations.FetchMode.SELECT)     // for some strange reason we need to add this, see: http://stackoverflow.com/questions/1995080/hibernate-criteria-returns-children-multiple-times-with-fetchtype-eager
     private List<Role> roles;
 
     //TODO: Constructor

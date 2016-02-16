@@ -8,7 +8,8 @@ import java.util.List;
  * Created by J.P on 15/02/2016.
  */
 public interface CardService {
-    Card createCard(int user, String cardtext);
+
+    Card createCard(int user, String name, String description);
 
     List<Card> getCards();
 

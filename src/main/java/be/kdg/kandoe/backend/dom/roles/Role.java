@@ -5,10 +5,7 @@ import be.kdg.kandoe.backend.services.exceptions.UserServiceException;
 import org.springframework.hateoas.Identifiable;
 import org.springframework.security.core.GrantedAuthority;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
@@ -17,11 +14,15 @@ import java.util.stream.Collectors;
 /**
  * Created by J.P on 15/02/2016.
  */
+@Entity
+@Table(name = "Role")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public abstract class Role implements Identifiable<Integer> {
     @Id
     @GeneratedValue
     @Column(name = "RoleId", nullable = false)
     private Integer roleId;
+
     @ManyToOne(targetEntity = User.class)
     private User user;
 

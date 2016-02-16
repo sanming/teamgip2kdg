@@ -35,7 +35,8 @@ public class Card implements Serializable, Identifiable<Integer>{
     private List<Vote> votes;
 
     @OneToOne(targetEntity = User.class,cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    @JoinColumn(name = "UserId", nullable = false)
+    //TODO: zet nullable terug op true
+    @JoinColumn(name = "UserId", nullable = true)
     private User user;
 
     @ManyToOne(targetEntity = Theme.class,cascade = CascadeType.ALL,fetch = FetchType.EAGER)
