@@ -6,6 +6,7 @@ import java.util.Collection;
 
 /**
  * Created by J.P on 15/02/2016.
+ *
  */
 public class Organisator extends Role {
     @Override

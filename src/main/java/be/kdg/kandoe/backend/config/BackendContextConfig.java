@@ -12,11 +12,11 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
  */
 
 @Configuration
-@ComponentScan(basePackages = "be.kdg.repaircafe.backend",
+@ComponentScan(basePackages = "be.kdg.kandoe.backend",
         excludeFilters = {@ComponentScan.Filter(type = FilterType.ANNOTATION,
                 value = Configuration.class)}
 )
-@EnableJpaRepositories(basePackages = "be.kdg.repaircafe.backend.persistence")
+@EnableJpaRepositories(basePackages = "be.kdg.kandoe.backend.persistence")
 public class BackendContextConfig
 {
     // https://programmeren3-repaircafe.rhcloud.com/repair-cafe-applicatie/repair-cafe-backend/
